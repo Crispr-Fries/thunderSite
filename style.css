@@ -1,0 +1,48 @@
+html {
+  font-size: 10px;
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/d/d4/Lightning_storm_over_ocean_at_night.jpg);
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.keys {
+  display: flex;
+  flex: 1;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.key {
+  border: .4rem solid black;
+  border-radius: .5rem;
+  margin: 2rem;
+  font-size: 1rem;
+  padding: 1rem .5rem;
+  transition: all 0.5s ease;
+  width: 10rem;
+  text-align: center;
+  color: white;
+  background: rgba(0,0,0,0.4);
+  text-shadow: 1 1 1rem black;
+}
+
+kbd {
+  display: block;
+  font-size: 4rem;
+}
+
+.sound{
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+  color: #ffc600
+}
+
+.playing {
+  transform:scale(1.05);
+  border-color:#ffc600;
+  box-shadow: 0 0 10px #ffc600;
+}

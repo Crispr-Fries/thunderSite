@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset ="UTF-8">
+  <title> Thunder Learning Project </title>
+  <link rel="stylesheet" href="style.css">
+<head>
+
+<body>
+
+  <div class = "keys">
+    <div data-key="65" class="key">
+      <kbd>A</kbd>
+      <span class ="sound">Close</span>
+    </div>
+    <div data-key="83" class="key">
+      <kbd>S</kbd>
+      <span class="sound">Thunder</span>
+    </div>
+    <div data-key="68" class="key">
+      <kbd>D</kbd>
+      <span class="sound">Wind</span>
+    </div>
+    <div data-key="70" class="key">
+      <kbd>F</kbd>
+      <span class="sound">Rumble</span>
+    </div>
+    <div data-key="74" class="key">
+      <kbd>J</kbd>
+      <span class= "sound">Sharp</span>
+    </div>
+    <div data-key="75" class= "key">
+      <kbd>K</kbd>
+      <span class= "sound">Wave</span>
+    </div>
+    <div data-key="76" class= "key">
+      <kbd>L</kbd>
+      <span class= "sound">Distant</span>
+    </div>
+  </div>
+
+  <audio data-key="65" src="stormSounds/close.wav"></audio>
+  <audio data-key="83" src="stormSounds/thunder.wav"></audio>
+  <audio data-key="68" src="stormSounds/wind.wav"></audio>
+  <audio data-key="70" src="stormSounds/rumble.wav"></audio>
+  <audio data-key="74" src="stormSounds/sharp.wav"></audio>
+  <audio data-key="75" src="stormSounds/wave.wav"></audio>
+  <audio data-key="76" src="stormSounds/distant.wav"></audio>
+  <audio data-key="186" src="stormSounds/sunderstorm.wav"></audio>
+
+<script>
+  function removeTransition(e) {
+    if(e.propertyName !== 'transform') return;
+    this.classList.remove('playing');
+  }
+
+  function playSound(e) {
+    window.addEventListener('keydown', function(e) {
+      const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+      const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+      if(!audio) return;
+      audio.currentTime=0;
+      audio.play();
+      key.classList.add('playing');
+
+  });
+}
+
+  const keys = Array.from(document.querySelectorAll('.key'));
+  keys.forEach(key => key.addEventListener('transitionend', removeTransition))
+  window.addEventListener('keydown', playSound)
+
+</script>
+
+</body>
+</html>
